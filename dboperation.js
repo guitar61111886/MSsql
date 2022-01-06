@@ -27,7 +27,7 @@ async function getdata() {
 async function getdata_withQuery() {
     try {
         let pool = await sql.connect(config);
-        let res = await pool.request().query("SELECT PbsChtNum, PbsPatNam,PbsSurNam  FROM PbsInf");
+        let res = await pool.request().query("SELECT TOP 10 PbsChtNum, PbsPatNam,PbsSurNam  FROM PbsInf");
         return res.recordsets;
     } catch (error) {
         console.log("guitar-error :" + error);
